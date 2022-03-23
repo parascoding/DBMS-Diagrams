@@ -14,7 +14,15 @@ public:
     void setManufacturer(string manufacturer);
     float getPower();
     void setPower(float power);
+    friend ostream& operator<<(ostream& os, Car c);
+    
 };
+ostream& operator<<(ostream& os, Car c)
+{
+    os << c.getModel();
+    return os;
+}
+
 
 int Car::getModel() {
     return this->model;
@@ -60,27 +68,27 @@ public:
 
 template <class T> void Stack<T>::push(T val){
     if(isFull()){
-        file<<"Error : Stack is already full\n";
+        cout<<"Error : Stack is already full\n";
     }
     a[++top]=val;
-    // file<<"Pushed "<<val<<endl;
+    cout<<"Pushed "<<val<<endl;
 }
 
 
 template <class T> T Stack<T>::pop(){
     if(isEmpty()){
-        file<<"Error : Stack is already empty\n";
+        cout<<"Error : Stack is already empty\n";
     }
     T temp=a[top--];
-    // file<<temp<<" popped\n";
+    cout<<temp<<" popped\n";
     return temp;
 }
 template <class T> T Stack<T>::peek(){
     if(isEmpty()){
-        file<<"Error : Stack is already empty\n";
+        cout<<"Error : Stack is already empty\n";
     }
     T temp=a[top];
-    // file<<temp<<" is on top\n";
+    // cout<<temp<<" is on top\n";
     return temp;
 }
 template <class T> bool Stack<T>::isEmpty(){
@@ -132,9 +140,9 @@ int main(){
 
 
     Car car2;
-    car1.setManufacturer("Tata");
-    car1.setModel(250);
-    car1.setPower(300);
+    car2.setManufacturer("Tata");
+    car2.setModel(250);
+    car2.setPower(300);
 
     st_car.push(car2);
     
